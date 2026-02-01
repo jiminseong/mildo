@@ -1,4 +1,5 @@
 import { ArrowRight, Code2, Database, LayoutDashboard, Terminal } from "lucide-react";
+import Link from "next/link";
 
 export default function AdvancedPage() {
   return (
@@ -111,12 +112,15 @@ export default function AdvancedPage() {
 
       {/* CTA */}
       <section className="container mx-auto px-6 max-w-container mt-32 flex justify-end">
-        <button className="group flex items-center gap-4 text-2xl md:text-4xl font-bold text-text-primary hover:text-labs transition-colors">
+        <Link
+          href="/contact?type=advanced"
+          className="group flex items-center gap-4 text-2xl md:text-4xl font-bold text-text-primary hover:text-labs transition-colors"
+        >
           프로젝트 문의하기
           <span className="w-12 h-12 rounded-full bg-labs text-white flex items-center justify-center group-hover:scale-110 transition-transform">
             <ArrowRight className="w-6 h-6" />
           </span>
-        </button>
+        </Link>
       </section>
     </main>
   );

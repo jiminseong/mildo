@@ -1,11 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { ArrowRight, Check, Loader2 } from "lucide-react";
 import { supabase } from "@/lib/supabase/client";
 
-export default function ContactPage() {
-  const [serviceType, setServiceType] = useState<"local" | "advanced" | "automation">("local");
+function ContactForm() {
+  const searchParams = useSearchParams();
+  const typeParam = searchParams.get("type");
+  const [serviceType, setServiceType] = useState<"local" | "advanced" | "automation">(
+    typeParam === "advanced" || typeParam === "automation" ? typeParam : "local",
+  );
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -324,5 +329,19 @@ export default function ContactPage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen pt-24 pb-32 flex items-center justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-dangol" />
+        </div>
+      }
+    >
+      <ContactForm />
+    </Suspense>
   );
 }

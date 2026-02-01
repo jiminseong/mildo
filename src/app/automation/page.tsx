@@ -1,4 +1,5 @@
 import { ArrowRight, Bot, Database, FileSpreadsheet, Zap } from "lucide-react";
+import Link from "next/link";
 
 export default function AutomationPage() {
   return (
@@ -118,12 +119,12 @@ export default function AutomationPage() {
         <p className="text-text-secondary mb-8">
           어떤 업무를 자동화할 수 있을지 무료로 진단해 드립니다.
         </p>
-        <a
-          href="/contact"
+        <Link
+          href="/contact?type=automation"
           className="inline-flex items-center gap-2 px-8 py-4 bg-automation text-white font-bold rounded-lg hover:bg-automation-hover transition-colors shadow-lg shadow-automation/20"
         >
           자동화 가능 여부 문의하기 <ArrowRight className="w-4 h-4" />
-        </a>
+        </Link>
       </section>
     </main>
   );

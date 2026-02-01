@@ -60,7 +60,7 @@ export function Footer() {
                 href="mailto:contact@mildo.com"
                 className="hover:text-text-primary transition-colors"
               >
-                contact@mildolab.com
+                contact@mildo.com
               </a>
             </li>
           </ul>

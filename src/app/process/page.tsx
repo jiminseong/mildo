@@ -1,11 +1,5 @@
-import {
-  ArrowDown,
-  CheckCircle2,
-  MessageSquare,
-  MonitorPlay,
-  ScrollText,
-  Users,
-} from "lucide-react";
+import Link from "next/link";
+import { CheckCircle2, MessageSquare, MonitorPlay, ScrollText, Users } from "lucide-react";
 
 export default function ProcessPage() {
   const steps = [
@@ -117,12 +111,12 @@ export default function ProcessPage() {
           <p className="text-text-secondary mb-8">
             밀도가 기획부터 오픈까지 친절하게 안내해 드립니다.
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-block px-8 py-3 bg-dangol text-white font-bold rounded-lg hover:bg-dangol-hover transition-colors"
           >
             프로젝트 문의하기
-          </a>
+          </Link>
         </div>
       </section>
     </main>

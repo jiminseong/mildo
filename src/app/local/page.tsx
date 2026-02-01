@@ -1,4 +1,5 @@
 import { ArrowRight, Check } from "lucide-react";
+import Link from "next/link";
 
 export default function LocalPage() {
   const packages = [
@@ -101,7 +102,8 @@ export default function LocalPage() {
                 ))}
               </ul>
 
-              <button
+              <Link
+                href="/contact?type=local"
                 className={`w-full py-4 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2 ${
                   pkg.recommended
                     ? "bg-dangol text-white hover:bg-dangol-hover shadow-md hover:shadow-lg"
@@ -109,7 +111,7 @@ export default function LocalPage() {
                 }`}
               >
                 {pkg.name} 패키지 상담하기 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           ))}
         </div>
@@ -121,9 +123,12 @@ export default function LocalPage() {
         <p className="text-text-secondary mb-8">
           업종과 예산을 알려주시면 가장 효율적인 구성을 제안해 드립니다.
         </p>
-        <button className="inline-flex items-center justify-center px-8 py-4 bg-text-primary text-white font-bold rounded-lg hover:bg-dangol transition-colors">
+        <Link
+          href="/contact?type=local"
+          className="inline-flex items-center justify-center px-8 py-4 bg-text-primary text-white font-bold rounded-lg hover:bg-dangol transition-colors"
+        >
           무료 견적 상담 받기
-        </button>
+        </Link>
       </section>
     </main>
   );
