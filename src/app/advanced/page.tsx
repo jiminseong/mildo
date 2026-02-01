@@ -1,77 +1,123 @@
+import { ArrowRight, Code2, Database, LayoutDashboard, Terminal } from "lucide-react";
+
 export default function AdvancedPage() {
   return (
-    <div className="container mx-auto px-4 py-20">
-      <div className="max-w-4xl mx-auto text-center mb-16">
-        <span className="text-labs font-bold text-lg mb-2 block">고도 개발</span>
-        <h1 className="text-3xl md:text-5xl font-bold mb-6 text-text-primary">
-          MVP 제작부터
-          <br />
-          운영 시스템 구축까지
-        </h1>
-        <p className="text-lg text-text-secondary leading-relaxed">
-          초기 스타트업, 사내 신규 프로젝트를 위한 전문 개발 파트너입니다.
-          <br />
-          출시와 운영이 가능한, 살아있는 코드를 만듭니다.
-        </p>
-      </div>
+    <main className="min-h-screen pt-24 pb-32 bg-[#F5F5F0]">
+      {/* Hero Section */}
+      <section className="container mx-auto px-6 max-w-[1400px] mb-24">
+        <div className="max-w-3xl">
+          <span className="text-labs font-bold text-sm tracking-wide uppercase mb-4 block">
+            ADVANCED DEVELOPMENT
+          </span>
+          <h1 className="text-4xl md:text-6xl font-bold text-text-primary leading-[1.1] mb-8 text-balance-kor">
+            아이디어를
+            <br />
+            <span className="text-labs">살아있는 제품</span>으로
+          </h1>
+          <p className="text-xl text-text-secondary leading-relaxed max-w-2xl text-balance-kor">
+            MVP 제작부터 운영 가능한 어드민 시스템까지.
+            <br />
+            초기 스타트업과 사내 벤처를 위한 믿을 수 있는 기술 파트너입니다.
+          </p>
+        </div>
+      </section>
 
-      <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-        <div className="space-y-8">
-          <div className="bg-surface p-8 rounded-xl border border-border">
-            <h3 className="text-xl font-bold mb-4 text-text-primary">제공 분야</h3>
-            <ul className="space-y-3 text-text-secondary">
-              <li className="flex items-start gap-3">
-                <span className="text-labs font-bold mt-1">01</span>
-                <div>
-                  <strong className="block text-text-primary">MVP / 프로토타입</strong>
-                  <span className="text-sm">핵심 가설 검증을 위한 빠르고 단단한 제품</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-labs font-bold mt-1">02</span>
-                <div>
-                  <strong className="block text-text-primary">웹 어플리케이션</strong>
-                  <span className="text-sm">React/Next.js 기반의 고성능 웹 서비스</span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-labs font-bold mt-1">03</span>
-                <div>
-                  <strong className="block text-text-primary">관리자(Admin) / 백오피스</strong>
-                  <span className="text-sm">데이터 관리, 정산, 운영 효율화 시스템</span>
-                </div>
-              </li>
+      {/* Scope Grid */}
+      <section className="container mx-auto px-6 max-w-[1400px] mb-32">
+        <div className="grid md:grid-cols-2 gap-px bg-border border-y border-border">
+          <div className="bg-base p-12 hover:bg-white transition-colors group border-r border-border md:border-r-0">
+            <div className="w-12 h-12 bg-labs/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-labs group-hover:text-white transition-colors text-labs">
+              <Terminal className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-text-primary">MVP / 프로토타입</h3>
+            <ul className="space-y-3 text-text-secondary text-sm">
+              <li>• 핵심 가설 검증을 위한 기능 구현</li>
+              <li>• 2~4주 이내의 빠른 개발 주기</li>
+              <li>• 확장성을 고려한 데이터베이스 설계</li>
+            </ul>
+          </div>
+
+          <div className="bg-base p-12 hover:bg-white transition-colors group">
+            <div className="w-12 h-12 bg-labs/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-labs group-hover:text-white transition-colors text-labs">
+              <LayoutDashboard className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4 text-text-primary">관리자 / 백오피스</h3>
+            <ul className="space-y-3 text-text-secondary text-sm">
+              <li>• 데이터 관리 및 정산 시스템</li>
+              <li>• 회원 관리 및 권한(RBAC) 설정</li>
+              <li>• 운영 효율화를 위한 자동화 도구</li>
             </ul>
           </div>
         </div>
+      </section>
 
-        <div className="bg-labs-light/20 p-8 rounded-xl border border-labs/10">
-          <h3 className="text-xl font-bold mb-4 text-text-primary">기술 스택 & 프로세스</h3>
-          <div className="space-y-6">
+      {/* Tech & Process */}
+      <section className="container mx-auto px-6 max-w-[1400px]">
+        <div className="bg-[#2E3A45] rounded-3xl p-8 md:p-16 text-white overflow-hidden relative">
+          <div className="grid md:grid-cols-2 gap-16 relative z-10">
             <div>
-              <h4 className="font-semibold text-labs mb-2">Tech Stack</h4>
-              <p className="text-sm text-text-secondary">
-                Next.js, TypeScript, Tailwind CSS, Supabase, Vercel
+              <h2 className="text-3xl font-bold mb-8">Technology</h2>
+              <p className="text-white/70 mb-8 leading-relaxed">
+                최신 기술 스택을 사용하여 안정적이고 빠른 서비스를 만듭니다. 유행을 쫓기보다 검증된
+                기술을 선호합니다.
               </p>
+
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-bold text-white mb-2 flex items-center gap-2">
+                    <Code2 className="w-4 h-4" /> Frontend
+                  </h4>
+                  <p className="text-sm text-white/60">
+                    Next.js (App Router), React, TypeScript, Tailwind CSS
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-white mb-2 flex items-center gap-2">
+                    <Database className="w-4 h-4" /> Backend
+                  </h4>
+                  <p className="text-sm text-white/60">
+                    Supabase, Prisma, PostgreSQL, Serverless Functions
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h4 className="font-semibold text-labs mb-2">Process</h4>
-              <ul className="text-sm text-text-secondary space-y-1">
-                <li>1. 요구사항 상세 정의 (기능 명세)</li>
-                <li>2. 주 단위 스프린트 & 진행 상황 공유</li>
-                <li>3. 테스트 및 QA</li>
-                <li>4. 소스코드 이관 및 운영 가이드 제공</li>
+
+            <div className="border-t md:border-t-0 md:border-l border-white/10 pt-8 md:pt-0 md:pl-16">
+              <h2 className="text-3xl font-bold mb-8">Process</h2>
+              <ul className="space-y-6">
+                {[
+                  {
+                    step: "01",
+                    title: "요구사항 구체화",
+                    desc: "추상적인 아이디어를 기능 명세서로 변환",
+                  },
+                  { step: "02", title: "스프린트 개발", desc: "주 단위 배포 및 피드백 루프" },
+                  { step: "03", title: "QA 및 안정화", desc: "버그 수정 및 사용성 테스트" },
+                  { step: "04", title: "이관 및 교육", desc: "소스코드 원본 전달 및 운영 가이드" },
+                ].map((item) => (
+                  <li key={item.step} className="flex gap-4">
+                    <span className="font-mono text-white/40 pt-1">{item.step}</span>
+                    <div>
+                      <strong className="block text-lg font-bold mb-1">{item.title}</strong>
+                      <span className="text-sm text-white/60">{item.desc}</span>
+                    </div>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="mt-20 text-center">
-        <button className="bg-labs text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-labs-hover transition-all shadow-sm hover:scale-[1.02]">
-          개발 요구사항 상담하기
+      {/* CTA */}
+      <section className="container mx-auto px-6 max-w-[1400px] mt-32 flex justify-end">
+        <button className="group flex items-center gap-4 text-2xl md:text-4xl font-bold text-text-primary hover:text-labs transition-colors">
+          프로젝트 문의하기
+          <span className="w-12 h-12 rounded-full bg-labs text-white flex items-center justify-center group-hover:scale-110 transition-transform">
+            <ArrowRight className="w-6 h-6" />
+          </span>
         </button>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 }
