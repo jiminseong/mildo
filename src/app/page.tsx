@@ -19,8 +19,6 @@ export default function Home() {
             </h1>
             <p className="text-xl text-text-secondary max-w-lg leading-relaxed text-balance-kor">
               밀도는 자영업자 웹·예약 패키지와 고도 개발을 함께 하는 소프트웨어 파트너입니다.
-              <br />
-              개인 프리랜서가 아닌, 체계적인 팀으로서 당신의 비즈니스를 돕습니다.
             </p>
           </div>
 

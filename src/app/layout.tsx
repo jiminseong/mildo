@@ -10,6 +10,7 @@ export const metadata: Metadata = {
     description: "정돈된 프로세스로 필요한 결과물을 만듭니다.",
     locale: "ko_KR",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
 };
 
