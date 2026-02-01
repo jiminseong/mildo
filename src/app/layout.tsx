@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     type: "website",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
+  verification: {
+    other: {
+      "naver-site-verification": "815cb2f508e6adcc6b642f64c90d2d3c61c49053",
+    },
+  },
 };
 
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
