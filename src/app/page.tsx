@@ -30,14 +30,17 @@ export default function Home() {
             {/* Card 1: Dangol */}
             <Link
               href="/local"
-              className="group flex flex-col justify-between p-6 bg-white border border-border rounded-xl hover:border-dangol transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md min-h-[240px]"
+              className="relative group flex flex-col justify-between p-6 bg-white border-2 border-dangol rounded-xl shadow-lg transition-all duration-300 hover:-translate-y-1 min-h-[240px] z-10"
             >
+              <div className="absolute -top-3 left-6 bg-dangol text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+                <CheckCircle2 className="w-3 h-3" /> BEST CHOICE
+              </div>
               <div>
                 <div className="mb-4 flex justify-between items-start">
                   <span className="text-dangol font-bold text-xs tracking-uppercase border-b border-dangol/20 pb-1">
                     LOCAL
                   </span>
-                  <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-dangol transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-dangol group-hover:scale-110 transition-transform" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-text-primary">자영업 패키지</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
