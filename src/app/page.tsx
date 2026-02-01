@@ -54,23 +54,23 @@ export default function Home() {
             {/* Card 2: Labs */}
             <Link
               href="/advanced"
-              className="group flex flex-col justify-between p-6 bg-[#2E3A45] border border-transparent rounded-xl hover:bg-[#252f38] transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md min-h-[240px]"
+              className="group flex flex-col justify-between p-6 bg-white border border-border rounded-xl hover:border-labs transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md min-h-[240px]"
             >
               <div>
                 <div className="mb-4 flex justify-between items-start">
-                  <span className="text-white/60 font-bold text-xs tracking-uppercase border-b border-white/20 pb-1">
+                  <span className="text-labs font-bold text-xs tracking-uppercase border-b border-labs/20 pb-1">
                     ADVANCED
                   </span>
-                  <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-labs transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white">고도 개발</h3>
-                <p className="text-white/70 text-sm leading-relaxed">
+                <h3 className="text-xl font-bold mb-2 text-text-primary">고도 개발</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
                   MVP, Admin,
                   <br />
                   운영 시스템 구축.
                 </p>
               </div>
-              <div className="mt-4 flex items-center text-xs font-semibold text-white group-hover:text-white/90 transition-colors">
+              <div className="mt-4 flex items-center text-xs font-semibold text-text-primary group-hover:text-labs transition-colors">
                 자세히 보기 <ArrowRight className="ml-1 w-3 h-3" />
               </div>
             </Link>

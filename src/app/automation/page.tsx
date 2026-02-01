@@ -105,7 +105,7 @@ export default function AutomationPage() {
                 <span className="text-2xl font-bold text-white">일 5분</span>
               </div>
               <div className="mt-2 text-right text-sm text-white/60">
-                * 실제 클라이언트(쇼핑몰 A사) 사례 기준
+                * 일반적인 자동화 도입 시 예상 효과입니다.
               </div>
             </div>
           </div>

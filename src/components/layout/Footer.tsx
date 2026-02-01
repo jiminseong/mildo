@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 export function Footer() {
@@ -52,21 +54,13 @@ export function Footer() {
                 문의하기
               </Link>
             </li>
-            <li>
-              <a
-                href="#"
-                className="hover:text-text-primary transition-colors"
-                onClick={(e) => e.preventDefault()}
-              >
-                카카오톡 채널
-              </a>
-            </li>
+
             <li>
               <a
                 href="mailto:contact@mildo.com"
                 className="hover:text-text-primary transition-colors"
               >
-                contact@mildo.com
+                contact@mildolab.com
               </a>
             </li>
           </ul>

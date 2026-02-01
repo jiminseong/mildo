@@ -19,14 +19,14 @@ export function EventBanner() {
             2/1~3/31 선착순 마감 5건 임박!{" "}
             <span className="font-bold border-b border-white/50">자영업 START 패키지</span> 무료
             이벤트를 놓치지 마세요.
-          </p>
+          </p>{" "}
+          <a
+            href="/contact"
+            className="flex items-center gap-1 font-bold underline decoration-white/50 hover:decoration-white transition-all text-sm whitespace-nowrap"
+          >
+            혜택받고 상담하기 <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
-        <a
-          href="/contact"
-          className="flex items-center gap-1 font-bold underline decoration-white/50 hover:decoration-white transition-all text-sm whitespace-nowrap"
-        >
-          혜택받고 상담하기 <ArrowRight className="w-4 h-4" />
-        </a>
 
         <button
           onClick={() => setIsOpen(false)}
