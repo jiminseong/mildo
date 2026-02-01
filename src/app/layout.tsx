@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mildolab.com"),
   title: "밀도 | 자영업자 패키지 & 고도 개발 파트너",
   description:
     "밀도는 자영업자 웹·예약 패키지와 고도 개발을 함께 하는 소프트웨어 파트너입니다. 30초 안에 내게 필요한 솔루션을 확인하세요.",
@@ -29,9 +30,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "밀도 소프트웨어",
+    url: "https://www.mildolab.com",
+    logo: "https://www.mildolab.com/og-image.png",
+    description: "자영업자 웹·예약 패키지와 고도 개발을 함께 하는 소프트웨어 파트너",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+82-10-0000-0000",
+      contactType: "customer service",
+      email: "contact@mildo.com",
+    },
+  };
+
   return (
     <html lang="ko">
       <body className="antialiased text-text-primary bg-base font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <GoogleTagManager />
         <noscript>
           <iframe
