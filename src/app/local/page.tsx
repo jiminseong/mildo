@@ -43,7 +43,7 @@ export default function LocalPage() {
   return (
     <main className="min-h-screen pt-24 pb-32">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 max-w-[1400px] mb-24">
+      <section className="container mx-auto px-6 max-w-container mb-24">
         <div className="max-w-3xl">
           <span className="text-dangol font-bold text-sm tracking-wide uppercase mb-4 block">
             LOCAL PACKAGE
@@ -61,7 +61,7 @@ export default function LocalPage() {
       </section>
 
       {/* Pricing Grid */}
-      <section className="container mx-auto px-6 max-w-[1400px]">
+      <section className="container mx-auto px-6 max-w-container">
         <div className="grid md:grid-cols-3 gap-6">
           {packages.map((pkg) => (
             <div
@@ -116,7 +116,7 @@ export default function LocalPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="container mx-auto px-6 max-w-[1400px] mt-32 text-center">
+      <section className="container mx-auto px-6 max-w-container mt-32 text-center">
         <h2 className="text-2xl font-bold mb-6">어떤 패키지가 맞을지 고민되시나요?</h2>
         <p className="text-text-secondary mb-8">
           업종과 예산을 알려주시면 가장 효율적인 구성을 제안해 드립니다.

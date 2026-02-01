@@ -3,7 +3,7 @@ import Link from "next/link";
 export function Footer() {
   return (
     <footer className="bg-surface py-12 border-t border-border">
-      <div className="container mx-auto px-6 max-w-[1400px] grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="container mx-auto px-6 max-w-container grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="md:col-span-2 space-y-4">
           <h2 className="text-lg font-bold text-text-primary">밀도 소프트웨어</h2>
           <p className="text-sm text-text-secondary leading-relaxed max-w-sm">
@@ -43,7 +43,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="container mx-auto px-6 max-w-[1400px] mt-12 pt-8 border-t border-border/50 text-xs text-text-secondary text-center md:text-left">
+      <div className="container mx-auto px-6 max-w-container mt-12 pt-8 border-t border-border/50 text-xs text-text-secondary text-center md:text-left">
         © 2026 Mildo Software. All rights reserved.
       </div>
     </footer>

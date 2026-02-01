@@ -23,8 +23,12 @@
   --color-labs: #2e3a45;
   --color-labs-hover: #1f272e;
 
-  /* Warm accent for highlighting */
-  --color-accent: #c45c44;
+  /* Automation: Trustworthy Royal Blue (Darkened) */
+  --color-automation: #1e429f;
+  --color-automation-hover: #153278;
+
+  /* Accent - Terra Cotta (Warm, Urgent but Earthy) */
+  --color-accent: #e05d44;
 }
 
 @theme {
@@ -37,6 +41,8 @@
   --color-dangol-hover: var(--color-dangol-hover);
   --color-labs: var(--color-labs);
   --color-labs-hover: var(--color-labs-hover);
+  --color-automation: var(--color-automation);
+  --color-automation-hover: var(--color-automation-hover);
   --color-accent: var(--color-accent);
 
   --font-sans: "Pretendard Variable", Pretendard, system-ui, sans-serif;

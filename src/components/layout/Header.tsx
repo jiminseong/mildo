@@ -3,8 +3,8 @@ import { ArrowRight } from "lucide-react";
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-base/90 backdrop-blur-sm border-b border-border py-4">
-      <div className="container mx-auto px-6 max-w-[1400px] flex items-center justify-between">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-base/90 backdrop-blur-sm border-b border-border py-4">
+      <div className="container mx-auto px-6 max-w-container flex items-center justify-between">
         {/* Logo - Text based, strong typography */}
         <Link
           href="/"
@@ -20,6 +20,9 @@ export function Header() {
           </Link>
           <Link href="/advanced" className="hover:text-labs transition-colors">
             고도 개발
+          </Link>
+          <Link href="/automation" className="hover:text-automation transition-colors">
+            업무 자동화
           </Link>
           <div className="h-4 w-px bg-border mx-2" />
           <Link href="/portfolio" className="hover:text-text-primary transition-colors">

@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { EventBanner } from "@/components/layout/EventBanner";
 
 export default function RootLayout({
   children,
@@ -27,8 +28,9 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="antialiased text-text-primary bg-base font-sans">
+        <EventBanner />
         <Header />
-        <div className="pt-16">{children}</div>
+        <div className="">{children}</div>
         <Footer />
       </body>
     </html>

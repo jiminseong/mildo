@@ -56,7 +56,7 @@ export default function ProcessPage() {
   return (
     <main className="min-h-screen pt-24 pb-32">
       {/* Hero */}
-      <section className="container mx-auto px-6 max-w-[1400px] mb-24 text-center">
+      <section className="container mx-auto px-6 max-w-container mb-24 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-text-primary">진행 방식</h1>
         <p className="text-lg text-text-secondary max-w-2xl mx-auto text-balance-kor">
           밀도는 체계적인 프로세스로 리스크를 줄이고, 약속된 결과물을 만듭니다.
@@ -111,7 +111,7 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      <section className="container mx-auto px-6 max-w-[1400px] mt-32 text-center">
+      <section className="container mx-auto px-6 max-w-container mt-32 text-center">
         <div className="bg-dangol/5 rounded-2xl p-12">
           <h2 className="text-2xl font-bold mb-4">개발, 어렵게 느끼지 마세요.</h2>
           <p className="text-text-secondary mb-8">

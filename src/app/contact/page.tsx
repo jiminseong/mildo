@@ -4,12 +4,12 @@ import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
 export default function ContactPage() {
-  const [serviceType, setServiceType] = useState<"local" | "advanced">("local");
+  const [serviceType, setServiceType] = useState<"local" | "advanced" | "automation">("local");
 
   return (
     <main className="min-h-screen pt-24 pb-32">
       {/* Instruction */}
-      <section className="container mx-auto px-6 max-w-[1400px] mb-12">
+      <section className="container mx-auto px-6 max-w-container mb-12">
         <h1 className="text-4xl font-bold mb-6">프로젝트 문의</h1>
         <p className="text-lg text-text-secondary max-w-xl">
           아래 양식을 작성해 주시면 담당자가 검토 후 1 영업일 이내에 연락드립니다. 구체적으로
@@ -18,15 +18,15 @@ export default function ContactPage() {
       </section>
 
       {/* Form Section */}
-      <section className="container mx-auto px-6 max-w-[1400px]">
+      <section className="container mx-auto px-6 max-w-container">
         <div className="grid lg:grid-cols-2 gap-16 md:gap-24">
           {/* Form Area */}
           <div>
             {/* Type Switcher */}
-            <div className="flex gap-4 mb-12 p-1 bg-surface inline-flex rounded-lg border border-border">
+            <div className="flex gap-2 mb-12 p-1 bg-surface inline-flex rounded-lg border border-border w-full md:w-auto">
               <button
                 onClick={() => setServiceType("local")}
-                className={`px-6 py-2 rounded-md font-bold text-sm transition-all ${
+                className={`flex-1 md:flex-none px-4 py-2 rounded-md font-bold text-sm transition-all whitespace-nowrap ${
                   serviceType === "local"
                     ? "bg-dangol text-white shadow-sm"
                     : "text-text-secondary hover:text-text-primary"
@@ -36,13 +36,23 @@ export default function ContactPage() {
               </button>
               <button
                 onClick={() => setServiceType("advanced")}
-                className={`px-6 py-2 rounded-md font-bold text-sm transition-all ${
+                className={`flex-1 md:flex-none px-4 py-2 rounded-md font-bold text-sm transition-all whitespace-nowrap ${
                   serviceType === "advanced"
                     ? "bg-labs text-white shadow-sm"
                     : "text-text-secondary hover:text-text-primary"
                 }`}
               >
                 고도 개발
+              </button>
+              <button
+                onClick={() => setServiceType("automation")}
+                className={`flex-1 md:flex-none px-4 py-2 rounded-md font-bold text-sm transition-all whitespace-nowrap ${
+                  serviceType === "automation"
+                    ? "bg-automation text-white shadow-sm"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+              >
+                업무 자동화
               </button>
             </div>
 
@@ -88,7 +98,7 @@ export default function ContactPage() {
               </div>
 
               {/* Dynamic Fields based on Type */}
-              {serviceType === "local" ? (
+              {serviceType === "local" && (
                 <div className="space-y-2">
                   <label htmlFor="store" className="block text-sm font-bold text-text-primary">
                     업종 / 매장명
@@ -100,7 +110,9 @@ export default function ContactPage() {
                     placeholder="예: 카페 밀도, 강남역 고깃집"
                   />
                 </div>
-              ) : (
+              )}
+
+              {serviceType === "advanced" && (
                 <div className="space-y-2">
                   <label htmlFor="status" className="block text-sm font-bold text-text-primary">
                     현재 진행 상황
@@ -117,6 +129,23 @@ export default function ContactPage() {
                 </div>
               )}
 
+              {serviceType === "automation" && (
+                <div className="space-y-2">
+                  <label htmlFor="target" className="block text-sm font-bold text-text-primary">
+                    자동화 대상 업무
+                  </label>
+                  <select
+                    id="target"
+                    className="w-full px-4 py-3 rounded-lg bg-base border border-border focus:border-text-primary focus:outline-none transition-colors appearance-none"
+                  >
+                    <option>엑셀/데이터 정리</option>
+                    <option>웹 크롤링/데이터 수집</option>
+                    <option>알림 봇 (슬랙/카카오/메일)</option>
+                    <option>기타 반복 업무</option>
+                  </select>
+                </div>
+              )}
+
               <div className="space-y-2">
                 <label htmlFor="desc" className="block text-sm font-bold text-text-primary">
                   문의 내용 및 요구사항 *
@@ -129,7 +158,9 @@ export default function ContactPage() {
                   placeholder={
                     serviceType === "local"
                       ? "원하시는 기능(예약, 갤러리 등)이나 참고할 만한 사이트를 알려주세요."
-                      : "개발하고자 하는 서비스의 핵심 기능이나 예산, 일정 범위를 적어주세요."
+                      : serviceType === "automation"
+                        ? "현재 반복적으로 하고 계신 업무나 자동화가 필요한 부분을 구체적으로 설명해주세요."
+                        : "개발하고자 하는 서비스의 핵심 기능이나 예산, 일정 범위를 적어주세요."
                   }
                 />
               </div>
@@ -139,7 +170,9 @@ export default function ContactPage() {
                 className={`w-full py-4 rounded-lg font-bold text-white text-lg transition-all shadow-sm flex items-center justify-center gap-2 ${
                   serviceType === "local"
                     ? "bg-dangol hover:bg-dangol-hover"
-                    : "bg-labs hover:bg-labs-hover"
+                    : serviceType === "automation"
+                      ? "bg-automation hover:bg-automation-hover"
+                      : "bg-labs hover:bg-labs-hover"
                 }`}
               >
                 문의 보내기 <ArrowRight className="w-5 h-5" />

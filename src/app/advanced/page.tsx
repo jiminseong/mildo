@@ -4,7 +4,7 @@ export default function AdvancedPage() {
   return (
     <main className="min-h-screen pt-24 pb-32 bg-[#F5F5F0]">
       {/* Hero Section */}
-      <section className="container mx-auto px-6 max-w-[1400px] mb-24">
+      <section className="container mx-auto px-6 max-w-container mb-24">
         <div className="max-w-3xl">
           <span className="text-labs font-bold text-sm tracking-wide uppercase mb-4 block">
             ADVANCED DEVELOPMENT
@@ -23,7 +23,7 @@ export default function AdvancedPage() {
       </section>
 
       {/* Scope Grid */}
-      <section className="container mx-auto px-6 max-w-[1400px] mb-32">
+      <section className="container mx-auto px-6 max-w-container mb-32">
         <div className="grid md:grid-cols-2 gap-px bg-border border-y border-border">
           <div className="bg-base p-12 hover:bg-white transition-colors group border-r border-border md:border-r-0">
             <div className="w-12 h-12 bg-labs/5 rounded-lg flex items-center justify-center mb-6 group-hover:bg-labs group-hover:text-white transition-colors text-labs">
@@ -52,7 +52,7 @@ export default function AdvancedPage() {
       </section>
 
       {/* Tech & Process */}
-      <section className="container mx-auto px-6 max-w-[1400px]">
+      <section className="container mx-auto px-6 max-w-container">
         <div className="bg-[#2E3A45] rounded-3xl p-8 md:p-16 text-white overflow-hidden relative">
           <div className="grid md:grid-cols-2 gap-16 relative z-10">
             <div>
@@ -68,7 +68,7 @@ export default function AdvancedPage() {
                     <Code2 className="w-4 h-4" /> Frontend
                   </h4>
                   <p className="text-sm text-white/60">
-                    Next.js (App Router), React, TypeScript, Tailwind CSS
+                    Next.js (App Router), React, React Native, Electron, TypeScript, Tailwind CSS
                   </p>
                 </div>
                 <div>
@@ -76,7 +76,7 @@ export default function AdvancedPage() {
                     <Database className="w-4 h-4" /> Backend
                   </h4>
                   <p className="text-sm text-white/60">
-                    Supabase, Prisma, PostgreSQL, Serverless Functions
+                    Supabase, NestJS, Prisma, PostgreSQL, Serverless Functions
                   </p>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function AdvancedPage() {
       </section>
 
       {/* CTA */}
-      <section className="container mx-auto px-6 max-w-[1400px] mt-32 flex justify-end">
+      <section className="container mx-auto px-6 max-w-container mt-32 flex justify-end">
         <button className="group flex items-center gap-4 text-2xl md:text-4xl font-bold text-text-primary hover:text-labs transition-colors">
           프로젝트 문의하기
           <span className="w-12 h-12 rounded-full bg-labs text-white flex items-center justify-center group-hover:scale-110 transition-transform">

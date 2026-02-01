@@ -65,7 +65,7 @@
 ## 4. UI Component Guide
 
 ### 4.1 Grid & Layout
-- **Container**: `max-w-[1400px]` (기본 `1280px`보다 더 와이드하게)
+- **Container**: `max-w-container` (기본 `1280px`보다 더 와이드하게)
 - **Section Spacing**: `py-24` (96px) 이상. 시원한 상하 여백 필수.
 - **Grid Lines**: 콘텐츠 구분을 위해 `gap-px bg-border` 테크닉(내부는 bg-base)을 사용하여 얇은 그리드 라인을 노출합니다.
 

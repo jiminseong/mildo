@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="min-h-screen pt-20 pb-32">
       {/* Hero Section - Editorial Style */}
-      <section className="container mx-auto px-6 max-w-[1400px] mb-32">
+      <section className="container mx-auto px-6 max-w-container mb-32">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start pt-16 lg:pt-32">
           {/* Left: Typography Heavy */}
           <div className="flex-1 space-y-10">
@@ -25,52 +25,77 @@ export default function Home() {
           </div>
 
           {/* Right: Service Cards / Navigation */}
-          <div className="flex-1 w-full grid gap-4 sm:grid-cols-2 lg:mt-24">
+          {/* Right: Service Cards / Navigation */}
+          <div className="flex-1 w-full grid gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:mt-24">
             {/* Card 1: Dangol */}
             <Link
               href="/local"
-              className="group flex flex-col justify-between p-8 bg-white border border-border rounded-xl hover:border-dangol transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md min-h-[280px]"
+              className="group flex flex-col justify-between p-6 bg-white border border-border rounded-xl hover:border-dangol transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md min-h-[240px]"
             >
               <div>
-                <div className="mb-6 flex justify-between items-start">
-                  <span className="text-dangol font-bold text-sm tracking-uppercase border-b border-dangol/20 pb-1">
-                    LOCAL PACKAGE
+                <div className="mb-4 flex justify-between items-start">
+                  <span className="text-dangol font-bold text-xs tracking-uppercase border-b border-dangol/20 pb-1">
+                    LOCAL
                   </span>
-                  <ArrowUpRight className="w-5 h-5 text-gray-300 group-hover:text-dangol transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-dangol transition-colors" />
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-text-primary">자영업 패키지</h3>
+                <h3 className="text-xl font-bold mb-2 text-text-primary">자영업 패키지</h3>
                 <p className="text-text-secondary text-sm leading-relaxed">
-                  매장 홍보용 웹사이트, 예약 시스템,
+                  매장 홍보용 웹사이트,
                   <br />
-                  네이버/카카오 연동까지 한 번에.
+                  예약 시스템 연동.
                 </p>
               </div>
-              <div className="mt-8 flex items-center text-sm font-semibold text-text-primary group-hover:text-dangol transition-colors">
-                내 매장에 맞게 구성하기 <ArrowRight className="ml-2 w-4 h-4" />
+              <div className="mt-4 flex items-center text-xs font-semibold text-text-primary group-hover:text-dangol transition-colors">
+                자세히 보기 <ArrowRight className="ml-1 w-3 h-3" />
               </div>
             </Link>
 
             {/* Card 2: Labs */}
             <Link
               href="/advanced"
-              className="group flex flex-col justify-between p-8 bg-[#2E3A45] border border-transparent rounded-xl hover:bg-[#252f38] transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md min-h-[280px]"
+              className="group flex flex-col justify-between p-6 bg-[#2E3A45] border border-transparent rounded-xl hover:bg-[#252f38] transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md min-h-[240px]"
             >
               <div>
-                <div className="mb-6 flex justify-between items-start">
-                  <span className="text-white/60 font-bold text-sm tracking-uppercase border-b border-white/20 pb-1">
-                    ADVANCED LABS
+                <div className="mb-4 flex justify-between items-start">
+                  <span className="text-white/60 font-bold text-xs tracking-uppercase border-b border-white/20 pb-1">
+                    ADVANCED
                   </span>
-                  <ArrowUpRight className="w-5 h-5 text-white/40 group-hover:text-white transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-2xl font-bold mb-2 text-white">고도 개발</h3>
+                <h3 className="text-xl font-bold mb-2 text-white">고도 개발</h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  서비스 MVP, 관리자 페이지,
+                  MVP, Admin,
                   <br />
-                  안정적인 운영 시스템 구축.
+                  운영 시스템 구축.
                 </p>
               </div>
-              <div className="mt-8 flex items-center text-sm font-semibold text-white group-hover:text-white/90 transition-colors">
-                개발 상담 시작하기 <ArrowRight className="ml-2 w-4 h-4" />
+              <div className="mt-4 flex items-center text-xs font-semibold text-white group-hover:text-white/90 transition-colors">
+                자세히 보기 <ArrowRight className="ml-1 w-3 h-3" />
+              </div>
+            </Link>
+
+            {/* Card 3: Automation */}
+            <Link
+              href="/automation"
+              className="group flex flex-col justify-between p-6 bg-white border border-border rounded-xl hover:border-automation transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md min-h-[240px]"
+            >
+              <div>
+                <div className="mb-4 flex justify-between items-start">
+                  <span className="text-automation font-bold text-xs tracking-uppercase border-b border-automation/20 pb-1">
+                    AUTOMATION
+                  </span>
+                  <ArrowUpRight className="w-4 h-4 text-automation/40 group-hover:text-automation transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-text-primary">업무 자동화</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  엑셀, 크롤링, 챗봇.
+                  <br />
+                  반복 업무 제거.
+                </p>
+              </div>
+              <div className="mt-4 flex items-center text-xs font-semibold text-text-primary group-hover:text-automation transition-colors">
+                자세히 보기 <ArrowRight className="ml-1 w-3 h-3" />
               </div>
             </Link>
           </div>
@@ -79,7 +104,7 @@ export default function Home() {
 
       {/* Trust / Process Section - Clean Grid */}
       <section className="border-t border-border bg-surface py-24">
-        <div className="container mx-auto px-6 max-w-[1400px]">
+        <div className="container mx-auto px-6 max-w-container">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
             <div>
               <h2 className="text-3xl font-bold mb-4">정돈된 프로세스</h2>
