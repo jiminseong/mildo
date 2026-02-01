@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
+import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { EventBanner } from "@/components/layout/EventBanner";
@@ -28,6 +29,15 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="antialiased text-text-primary bg-base font-sans">
+        <GoogleTagManager />
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5ZLX3CKM"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <EventBanner />
         <Header />
         <div className="">{children}</div>

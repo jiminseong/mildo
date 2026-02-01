@@ -17,17 +17,22 @@ export function Footer() {
           <h3 className="font-semibold text-text-primary">Service</h3>
           <ul className="space-y-2 text-sm text-text-secondary">
             <li>
-              <Link href="/local" className="hover:text-text-primary">
+              <Link href="/local" className="hover:text-text-primary transition-colors">
                 자영업 패키지
               </Link>
             </li>
             <li>
-              <Link href="/advanced" className="hover:text-text-primary">
+              <Link href="/advanced" className="hover:text-text-primary transition-colors">
                 고도 개발
               </Link>
             </li>
             <li>
-              <Link href="/portfolio" className="hover:text-text-primary">
+              <Link href="/automation" className="hover:text-text-primary transition-colors">
+                업무 자동화
+              </Link>
+            </li>
+            <li>
+              <Link href="/portfolio" className="hover:text-text-primary transition-colors">
                 포트폴리오
               </Link>
             </li>
@@ -37,9 +42,33 @@ export function Footer() {
         <div className="space-y-4">
           <h3 className="font-semibold text-text-primary">Contact</h3>
           <ul className="space-y-2 text-sm text-text-secondary">
-            <li>문의하기</li>
-            <li>카카오톡 채널</li>
-            <li>이메일: contact@mildo.com (예시)</li>
+            <li>
+              <Link href="/faq" className="hover:text-text-primary transition-colors">
+                자주 묻는 질문 (FAQ)
+              </Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-text-primary transition-colors">
+                문의하기
+              </Link>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="hover:text-text-primary transition-colors"
+                onClick={(e) => e.preventDefault()}
+              >
+                카카오톡 채널
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:contact@mildo.com"
+                className="hover:text-text-primary transition-colors"
+              >
+                contact@mildo.com
+              </a>
+            </li>
           </ul>
         </div>
       </div>
