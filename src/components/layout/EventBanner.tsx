@@ -1,12 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function EventBanner() {
   const [isOpen, setIsOpen] = useState(true);
+  const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState(false);
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Prevent hydration mismatch by waiting for mount
+  if (!isMounted) return null;
+
+  // Don't show banner on contact page to prevent distraction/data loss
+  if (!isOpen || pathname === "/contact") return null;
 
   return (
     <div className="bg-accent text-white px-4 py-3 relative z-50">
@@ -20,12 +32,12 @@ export function EventBanner() {
             <span className="font-bold border-b border-white/50">자영업 START 패키지</span> 무료
             이벤트를 놓치지 마세요.
           </p>{" "}
-          <a
+          <Link
             href="/contact"
             className="flex items-center gap-1 font-bold underline decoration-white/50 hover:decoration-white transition-all text-sm whitespace-nowrap"
           >
             혜택받고 상담하기 <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
 
         <button

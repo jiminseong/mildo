@@ -57,10 +57,10 @@ export function Footer() {
 
             <li>
               <a
-                href="mailto:contact@mildo.com"
+                href="mailto:contact@mildolab.com"
                 className="hover:text-text-primary transition-colors"
               >
-                contact@mildo.com
+                contact@mildolab.com
               </a>
             </li>
           </ul>

@@ -61,17 +61,57 @@ function ContactForm() {
 
       if (dbError) throw dbError;
 
+      // Send Email Notification (Fire-and-forget or await)
+      await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          contact: `${phone} / ${email}`,
+          content: finalContent,
+          budget,
+          schedule,
+          reference_url: referenceUrl,
+          service_type: serviceType,
+        }),
+      });
+
       setSubmitted(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (err: any) {
       console.error("Submission error:", err);
-      setError("문의 전송 중 오류가 발생했습니다. 이메일(contact@mildo.com)로 문의해 주세요.");
+      setError("문의 전송 중 오류가 발생했습니다. 이메일(contact@mildolab.com)로 문의해 주세요.");
     } finally {
       setLoading(false);
     }
   };
 
   /* ... (중략) ... */
+
+  if (submitted) {
+    return (
+      <main className="min-h-screen pt-32 pb-32 container mx-auto px-6 flex flex-col items-center justify-center text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="w-24 h-24 bg-dangol/10 text-dangol rounded-full flex items-center justify-center mb-8">
+          <Check className="w-12 h-12" />
+        </div>
+        <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-6">
+          문의가 성공적으로
+          <br className="md:hidden" /> 접수되었습니다
+        </h2>
+        <p className="text-text-secondary mb-10 text-lg leading-relaxed max-w-lg">
+          작성해주신 내용을 바탕으로 검토 후,
+          <br />
+          영업일 기준 24시간 이내에 연락드리겠습니다.
+        </p>
+        <button
+          onClick={() => (window.location.href = "/")}
+          className="px-10 py-4 bg-text-primary text-white rounded-xl font-bold text-lg hover:bg-black/80 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+        >
+          홈으로 돌아가기
+        </button>
+      </main>
+    );
+  }
 
   return (
     <main className="min-h-screen pt-24 pb-32">
@@ -303,7 +343,7 @@ function ContactForm() {
             </div>
             <div>
               <h3 className="font-bold text-lg mb-4">연락처</h3>
-              <p className="text-text-secondary leading-relaxed">이메일: contact@mildo.com</p>
+              <p className="text-text-secondary leading-relaxed">이메일: contact@mildolab.com</p>
             </div>
 
             <div className="bg-surface p-6 rounded-xl border border-border">

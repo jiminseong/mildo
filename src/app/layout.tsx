@@ -41,7 +41,7 @@ export default function RootLayout({
       "@type": "ContactPoint",
       telephone: "+82-10-0000-0000",
       contactType: "customer service",
-      email: "contact@mildo.com",
+      email: "contact@mildolab.com",
     },
   };
 
