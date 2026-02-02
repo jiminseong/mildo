@@ -51,7 +51,7 @@ function ContactForm() {
       const { error: dbError } = await supabase.from("contacts").insert({
         service_type: serviceType,
         name: name,
-        contact: `${phone} / ${email}`,
+        contact: email ? `${phone} / ${email}` : phone,
         content: finalContent,
         budget: budget,
         schedule: schedule,
@@ -155,10 +155,10 @@ function ContactForm() {
 
               <div className="space-y-2">
                 <label htmlFor="email" className="block text-sm font-bold text-text-primary">
-                  이메일 *
+                  {serviceType === "local" ? "이메일 (선택)" : "이메일 *"}
                 </label>
                 <input
-                  required
+                  required={serviceType !== "local"}
                   type="email"
                   id="email"
                   name="email"
