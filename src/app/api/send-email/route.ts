@@ -6,11 +6,20 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { name, contact, content, budget, schedule, reference_url, service_type } = body;
 
+    // Verify environment variables
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error("❌ Email environment variables are missing!");
+      return NextResponse.json(
+        { error: "Server configuration error: Missing email credentials" },
+        { status: 500 },
+      );
+    }
+
     // SMTP Transporter setup
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com", // 구글 워크스페이스/Gmail 사용 시 (다른 메일 사용 시 해당 SMTP 주소 입력)
+      host: "smtp.gmail.com",
       port: 465,
-      secure: true, // true for 465, false for other ports
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -35,11 +44,15 @@ export async function POST(request: Request) {
       `,
     };
 
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent successfully:", info.messageId);
 
     return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
-  } catch (error) {
-    console.error("Failed to send email:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+  } catch (error: any) {
+    console.error("❌ Failed to send email:", error);
+    return NextResponse.json(
+      { error: "Failed to send email", details: error.message },
+      { status: 500 },
+    );
   }
 }
