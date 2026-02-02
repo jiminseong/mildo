@@ -26,13 +26,22 @@ export async function POST(request: Request) {
       },
     });
 
+    const serviceTypeMap: Record<string, string> = {
+      local: "자영업 패키지",
+      advanced: "고도 개발",
+      automation: "업무 자동화",
+    };
+    const serviceTypeName = serviceTypeMap[service_type] || service_type;
+
+    console.log(`🚀 Attempting to send email from: ${process.env.EMAIL_USER}`);
+
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: "contact@mildolab.com",
-      subject: `[밀도 문의] ${name}님의 새로운 문의입니다. (${service_type})`,
+      subject: `[밀도 문의] ${name}님의 새로운 문의입니다. (${serviceTypeName})`,
       html: `
         <h2>새로운 문의가 접수되었습니다.</h2>
-        <p><strong>서비스 타입:</strong> ${service_type}</p>
+        <p><strong>서비스 타입:</strong> ${serviceTypeName}</p>
         <p><strong>성함:</strong> ${name}</p>
         <p><strong>연락처:</strong> ${contact}</p>
         <p><strong>예산:</strong> ${budget || "미입력"}</p>
