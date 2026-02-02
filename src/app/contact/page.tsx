@@ -90,7 +90,7 @@ function ContactForm() {
 
   if (submitted) {
     return (
-      <main className="min-h-screen pt-32 pb-32 container mx-auto px-6 flex flex-col items-center justify-center text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <main className="min-h-[60vh] pt-32 pb-12 container mx-auto px-6 flex flex-col items-center justify-center text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
         <div className="w-24 h-24 bg-dangol/10 text-dangol rounded-full flex items-center justify-center mb-8">
           <Check className="w-12 h-12" />
         </div>
