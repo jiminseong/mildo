@@ -7,12 +7,13 @@ export async function POST(request: Request) {
     const { name, contact, content, budget, schedule, reference_url, service_type } = body;
 
     // SMTP Transporter setup
-    // NOTE: For Gmail, you might need an App Password if 2FA is on.
     const transporter = nodemailer.createTransport({
-      service: "gmail", // You can change this to another service or use host/port
+      host: "smtp.gmail.com", // 구글 워크스페이스/Gmail 사용 시 (다른 메일 사용 시 해당 SMTP 주소 입력)
+      port: 465,
+      secure: true, // true for 465, false for other ports
       auth: {
-        user: process.env.EMAIL_USER, // Your email address
-        pass: process.env.EMAIL_PASS, // Your email password or app password
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
