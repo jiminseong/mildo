@@ -28,8 +28,8 @@ export function EventBanner() {
             설연휴 이벤트
           </span>
           <p className="font-medium">
-            2/1~3/31 선착순 마감 5건 임박!{" "}
-            <span className="font-bold border-b border-white/50">자영업 START 패키지</span> 무료
+            2/1~3/31 선착순 마감 잔여 3건 가능!{" "}
+            <span className="font-bold border-b border-white/50">자영업 START 패키지</span> 50%
             이벤트를 놓치지 마세요.
           </p>{" "}
           <Link
