@@ -1,6 +1,7 @@
 import { portfolioData } from "@/lib/data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
 export default async function PortfolioDetailPage({ params }: { params: Promise<{ id: string }> }) {
@@ -68,14 +69,17 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
         <div className="grid lg:grid-cols-3 gap-12">
           {/* Left: Image & Description */}
           <div className="lg:col-span-2 space-y-12">
-            {/* Image Placeholder */}
-            <div
-              className={`w-full aspect-video rounded-2xl ${project.imageColor} flex items-center justify-center text-text-secondary/30 font-bold text-2xl border border-border`}
-            >
-              Project Image
+            <div className="w-full aspect-video rounded-2xl border border-border overflow-hidden relative bg-surface">
+              <Image
+                src={project.imageSrc}
+                alt={project.imageAlt}
+                fill
+                priority
+                sizes="(min-width: 1024px) 66vw, 100vw"
+                className="object-cover object-top"
+              />
             </div>
 
-            {/* Description */}
             <div className="prose prose-lg max-w-none text-text-secondary leading-loose whitespace-pre-line">
               <h3 className="text-text-primary font-bold text-2xl mb-4">프로젝트 소개</h3>
               {project.description}
@@ -107,16 +111,22 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
                 </div>
               </div>
 
-              <div className="pt-8 border-t border-border">
-                <button
-                  disabled
-                  className="w-full py-4 rounded-lg bg-text-primary text-white font-bold flex items-center justify-center gap-2 opacity-50 cursor-not-allowed"
-                >
-                  사이트 방문하기 <ExternalLink className="w-4 h-4" />
-                </button>
-                <p className="text-xs text-text-secondary text-center mt-2">
-                  * 보안상의 이유로 링크가 제공되지 않을 수 있습니다.
-                </p>
+              <div className="pt-8 border-t border-border space-y-3">
+                {project.links.map((link, index) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`w-full py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors ${
+                      index === 0
+                        ? "bg-text-primary text-white hover:bg-text-primary/90"
+                        : "border border-border text-text-primary hover:bg-base"
+                    }`}
+                  >
+                    {link.label} <ExternalLink className="w-4 h-4" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>

@@ -2,10 +2,20 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { portfolioData } from "@/lib/data";
+import Image from "next/image";
+import { portfolioData, type PortfolioItem } from "@/lib/data";
 
 export default function PortfolioPage() {
-  const [filter, setFilter] = useState<"all" | "local" | "advanced" | "automation">("all");
+  type PortfolioFilter = "all" | PortfolioItem["category"];
+
+  const [filter, setFilter] = useState<PortfolioFilter>("all");
+
+  const filters: Array<{ key: PortfolioFilter; label: string }> = [
+    { key: "all", label: "전체" },
+    { key: "local", label: "자영업 패키지" },
+    { key: "advanced", label: "고도 개발" },
+    { key: "automation", label: "업무 자동화" },
+  ];
 
   const filteredData =
     filter === "all" ? portfolioData : portfolioData.filter((item) => item.category === filter);
@@ -45,15 +55,10 @@ export default function PortfolioPage() {
 
       {/* Filters */}
       <div className="flex justify-center gap-2 mb-12 flex-wrap">
-        {[
-          { key: "all", label: "전체" },
-          { key: "local", label: "자영업 패키지" },
-          { key: "advanced", label: "고도 개발" },
-          { key: "automation", label: "업무 자동화" },
-        ].map((btn) => (
+        {filters.map((btn) => (
           <button
             key={btn.key}
-            onClick={() => setFilter(btn.key as any)}
+            onClick={() => setFilter(btn.key)}
             className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${
               filter === btn.key
                 ? "bg-text-primary text-white"
@@ -70,12 +75,15 @@ export default function PortfolioPage() {
         {filteredData.map((item) => (
           <Link href={`/portfolio/${item.id}`} key={item.id} className="group cursor-pointer">
             <div
-              className={`aspect-video rounded-xl mb-4 border border-border overflow-hidden relative ${item.imageColor}`}
+              className="aspect-video rounded-xl mb-4 border border-border overflow-hidden relative bg-surface"
             >
-              {/* Image Placeholder */}
-              <div className="absolute inset-0 flex items-center justify-center text-text-secondary/50 font-bold text-lg group-hover:scale-105 transition-transform duration-500">
-                Project Image
-              </div>
+              <Image
+                src={item.imageSrc}
+                alt={item.imageAlt}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
             <div className="space-y-2">
               <span className={`text-xs font-bold ${getCategoryColor(item.category)}`}>
