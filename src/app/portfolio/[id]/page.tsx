@@ -80,9 +80,47 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
               />
             </div>
 
-            <div className="prose prose-lg max-w-none text-text-secondary leading-loose whitespace-pre-line">
-              <h3 className="text-text-primary font-bold text-2xl mb-4">프로젝트 소개</h3>
-              {project.description}
+            <div className="space-y-8">
+              <div className="prose prose-lg max-w-none text-text-secondary leading-loose whitespace-pre-line">
+                <h3 className="text-text-primary font-bold text-2xl mb-4">프로젝트 소개</h3>
+                {project.description}
+              </div>
+
+              {project.videos?.length ? (
+                <section className="space-y-4">
+                  <div>
+                    <h3 className="text-text-primary font-bold text-2xl">작동 영상</h3>
+                    <p className="text-sm text-text-secondary mt-2">
+                      실제 구현된 줌 인터랙션을 데스크탑과 모바일 화면으로 확인할 수 있습니다.
+                    </p>
+                  </div>
+
+                  <div className="space-y-6">
+                    {project.videos.map((video) => (
+                      <figure
+                        key={video.src}
+                        className={`rounded-2xl border border-border overflow-hidden bg-surface ${
+                          video.layout === "mobile" ? "max-w-[420px]" : "w-full"
+                        }`}
+                      >
+                        <figcaption className="px-5 py-4 border-b border-border">
+                          <p className="font-bold text-text-primary">{video.title}</p>
+                          {video.description ? (
+                            <p className="text-sm text-text-secondary mt-1">{video.description}</p>
+                          ) : null}
+                        </figcaption>
+
+                        <div className={`bg-base ${video.layout === "mobile" ? "aspect-[9/16]" : "aspect-video"}`}>
+                          <video controls playsInline preload="metadata" className="w-full h-full object-contain">
+                            <source src={video.src} type={video.mimeType} />
+                            브라우저가 영상을 지원하지 않습니다.
+                          </video>
+                        </div>
+                      </figure>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
             </div>
           </div>
 

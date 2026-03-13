@@ -3,6 +3,14 @@ export type PortfolioLink = {
   url: string;
 };
 
+export type PortfolioVideo = {
+  title: string;
+  src: string;
+  mimeType: string;
+  layout: "desktop" | "mobile";
+  description?: string;
+};
+
 export type PortfolioItem = {
   id: string;
   title: string;
@@ -15,6 +23,7 @@ export type PortfolioItem = {
   imageSrc: string;
   imageAlt: string;
   links: PortfolioLink[];
+  videos?: PortfolioVideo[];
 };
 
 export const portfolioData: PortfolioItem[] = [
@@ -133,6 +142,22 @@ Todo, Routine, Mandalart 중심의 생산성 앱과 운동 기록, 중량 추이
       {
         label: "브랜드 소개",
         url: "https://moumouteofficial.com/shopinfo/about.html?cate_no=45",
+      },
+    ],
+    videos: [
+      {
+        title: "데스크탑 줌 데모",
+        src: "/portfolio/desktop-zoom.mp4",
+        mimeType: "video/mp4",
+        layout: "desktop",
+        description: "상품 상세에서 렌즈형 확대 UI가 동작하는 실제 데스크탑 화면입니다.",
+      },
+      {
+        title: "모바일 줌 데모",
+        src: "/portfolio/mobile-zoom.mp4",
+        mimeType: "video/mp4",
+        layout: "mobile",
+        description: "모바일에서 토글 기반 줌 UX가 작동하는 실제 테스트 화면입니다.",
       },
     ],
   },
