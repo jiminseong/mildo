@@ -120,6 +120,26 @@ Todo, Routine, Mandalart 중심의 생산성 앱과 운동 기록, 중량 추이
     ],
   },
   {
+    id: "photox-kiosk",
+    title: "포토XX AI 생성형 포토부스 키오스크 앱 구축",
+    category: "advanced",
+    summary:
+      "매장·행사 현장에서 고객 셀프 촬영과 운영 설정 관리를 분리한 포토부스 키오스크 앱 + 관리자 시스템 구축",
+    client: "비공개 / 포토XX",
+    duration: "2025.09",
+    techStack: ["TypeScript", "Next.js", "NestJS", "Gen AI Service"],
+    description: `포토XX는 매장·행사 현장에서 사용할 수 있는 AI 생성형 포토부스 키오스크 앱과 관리자 시스템을 함께 구축한 프로젝트입니다.
+
+고객은 키오스크에서 촬영을 진행하고, 운영자는 관리자 화면에서 콘텐츠, 설정, 운영 상태를 직접 관리할 수 있도록 구성했습니다.
+
+현장에서 "누가 사용해도" 흐름이 이해되도록 큰 버튼과 명확한 안내 중심의 터치 UI를 설계했고, 시작, 촬영, 결과 확인, 완료로 이어지는 흐름을 단순하게 정리했습니다.
+
+또한 오류 안내, 재시도, 복구 중심의 예외 처리를 보강하고 현장 테스트를 반복하며 사용성을 개선해, 장시간 운영되는 매장·행사 환경에서도 안정적으로 사용할 수 있는 시스템으로 마무리했습니다.`,
+    imageSrc: "/portfolio/photox-kiosk.svg",
+    imageAlt: "포토XX 키오스크 앱과 관리자 시스템을 표현한 대표 이미지",
+    links: [],
+  },
+  {
     id: "moumoute",
     title: "MOUMOUTE 공식몰 퍼블리싱 고도화",
     category: "advanced",

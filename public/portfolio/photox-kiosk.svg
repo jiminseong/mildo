@@ -1,0 +1,38 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0F172A"/>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1310" cy="170" r="220" fill="#38BDF8" fill-opacity="0.18"/>
+  <circle cx="250" cy="760" r="260" fill="#22C55E" fill-opacity="0.16"/>
+  <rect x="80" y="88" width="1440" height="724" rx="32" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.12"/>
+  <text x="120" y="194" fill="#E2E8F0" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="2">ADVANCED BUILD</text>
+  <text x="120" y="284" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="82" font-weight="700">PHOTO XX</text>
+  <text x="120" y="366" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="400">AI Photo Booth Kiosk + Admin System</text>
+  <text x="120" y="430" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400">Touch-first flow for stores and on-site events</text>
+  <rect x="120" y="504" width="214" height="54" rx="27" fill="#22C55E" fill-opacity="0.18" stroke="#22C55E" stroke-opacity="0.42"/>
+  <text x="155" y="540" fill="#DCFCE7" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">KIOSK FLOW</text>
+  <rect x="354" y="504" width="222" height="54" rx="27" fill="#38BDF8" fill-opacity="0.18" stroke="#38BDF8" stroke-opacity="0.42"/>
+  <text x="389" y="540" fill="#E0F2FE" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">ADMIN PANEL</text>
+  <rect x="968" y="180" width="422" height="520" rx="28" fill="#0F172A" fill-opacity="0.72" stroke="#94A3B8" stroke-opacity="0.18"/>
+  <rect x="1000" y="220" width="158" height="18" rx="9" fill="#38BDF8" fill-opacity="0.78"/>
+  <rect x="1000" y="262" width="280" height="18" rx="9" fill="#E2E8F0" fill-opacity="0.56"/>
+  <rect x="1000" y="322" width="358" height="132" rx="22" fill="#FFFFFF" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.08"/>
+  <rect x="1032" y="356" width="136" height="46" rx="23" fill="#FFFFFF" fill-opacity="0.12"/>
+  <rect x="1200" y="356" width="126" height="46" rx="23" fill="#22C55E" fill-opacity="0.22"/>
+  <rect x="1000" y="486" width="170" height="14" rx="7" fill="#E2E8F0" fill-opacity="0.38"/>
+  <rect x="1000" y="516" width="308" height="14" rx="7" fill="#E2E8F0" fill-opacity="0.28"/>
+  <rect x="1000" y="560" width="326" height="108" rx="20" fill="#38BDF8" fill-opacity="0.14" stroke="#38BDF8" stroke-opacity="0.2"/>
+  <rect x="720" y="234" width="168" height="420" rx="30" fill="#111827" fill-opacity="0.78" stroke="#94A3B8" stroke-opacity="0.16"/>
+  <rect x="752" y="278" width="104" height="104" rx="24" fill="#FFFFFF" fill-opacity="0.1"/>
+  <circle cx="804" cy="330" r="28" fill="#38BDF8" fill-opacity="0.7"/>
+  <rect x="748" y="426" width="112" height="24" rx="12" fill="#E2E8F0" fill-opacity="0.56"/>
+  <rect x="736" y="472" width="136" height="56" rx="28" fill="#22C55E" fill-opacity="0.24" stroke="#22C55E" stroke-opacity="0.34"/>
+  <rect x="736" y="548" width="136" height="56" rx="28" fill="#FFFFFF" fill-opacity="0.1"/>
+  <text x="120" y="644" fill="#F8FAFC" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700">Built for self-service shooting and operator control</text>
+  <text x="120" y="696" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="400">Simple step screens, stable exception handling, and on-site admin management</text>
+  <defs>
+    <linearGradient id="bg" x1="1600" y1="0" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+</svg>

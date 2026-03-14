@@ -150,21 +150,27 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
               </div>
 
               <div className="pt-8 border-t border-border space-y-3">
-                {project.links.map((link, index) => (
-                  <a
-                    key={link.url}
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`w-full py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors ${
-                      index === 0
-                        ? "bg-text-primary text-white hover:bg-text-primary/90"
-                        : "border border-border text-text-primary hover:bg-base"
-                    }`}
-                  >
-                    {link.label} <ExternalLink className="w-4 h-4" />
-                  </a>
-                ))}
+                {project.links.length ? (
+                  project.links.map((link, index) => (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`w-full py-4 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors ${
+                        index === 0
+                          ? "bg-text-primary text-white hover:bg-text-primary/90"
+                          : "border border-border text-text-primary hover:bg-base"
+                      }`}
+                    >
+                      {link.label} <ExternalLink className="w-4 h-4" />
+                    </a>
+                  ))
+                ) : (
+                  <p className="text-sm text-text-secondary leading-relaxed">
+                    비공개 프로젝트로 외부 공개 링크는 제공하지 않습니다.
+                  </p>
+                )}
               </div>
             </div>
           </div>
