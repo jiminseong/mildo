@@ -1,6 +1,11 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronRight, Mail, MapPinned, Megaphone, Phone } from "lucide-react";
 import { siteContent, type AccentTone } from "@/lib/content";
+
+const ONBOARDING_STORAGE_KEY = "candidate_demo_onboarding_seen";
 
 const toneClassNames: Record<
   AccentTone,
@@ -28,6 +33,41 @@ const navigation = [
 
 export function CandidateLanding() {
   const { candidate, promises, profile, channels, footer } = siteContent;
+  const [isOnboardingOpen, setIsOnboardingOpen] = useState(false);
+
+  useEffect(() => {
+    const hasSeen = globalThis.localStorage.getItem(ONBOARDING_STORAGE_KEY);
+    if (!hasSeen) {
+      setIsOnboardingOpen(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isOnboardingOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeOnboarding();
+      }
+    };
+
+    globalThis.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      globalThis.removeEventListener("keydown", onKeyDown);
+    };
+  }, [isOnboardingOpen]);
+
+  const closeOnboarding = () => {
+    globalThis.localStorage.setItem(ONBOARDING_STORAGE_KEY, "1");
+    setIsOnboardingOpen(false);
+  };
 
   return (
     <div id="top" className="min-h-screen bg-base text-ink">
@@ -38,7 +78,9 @@ export function CandidateLanding() {
               2
             </div>
             <div className="min-w-0">
-              <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-blue">{candidate.party}</p>
+              <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-blue">
+                {candidate.party}
+              </p>
               <p className="truncate text-sm font-semibold text-ink">{candidate.name}</p>
             </div>
           </div>
@@ -71,11 +113,15 @@ export function CandidateLanding() {
             <div className="space-y-8">
               <div className="flex flex-wrap gap-3">
                 <div className="border-l-4 border-civic-blue pl-3">
-                  <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-blue">{candidate.number}</p>
+                  <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-blue">
+                    {candidate.number}
+                  </p>
                   <p className="mt-1 text-sm font-semibold text-ink">{candidate.party}</p>
                 </div>
                 <div className="border-l-4 border-civic-red pl-3">
-                  <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-red">{candidate.office}</p>
+                  <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-red">
+                    {candidate.office}
+                  </p>
                   <p className="mt-1 text-sm font-semibold text-ink">{candidate.intro}</p>
                 </div>
               </div>
@@ -87,7 +133,9 @@ export function CandidateLanding() {
                 <p className="mt-4 max-w-[18ch] text-2xl font-semibold leading-snug text-ink lg:text-[2.1rem]">
                   {candidate.slogan}
                 </p>
-                <p className="mt-5 max-w-[44ch] text-[15px] leading-7 text-muted md:text-[17px]">{candidate.summary}</p>
+                <p className="mt-5 max-w-[44ch] text-[15px] leading-7 text-muted md:text-[17px]">
+                  {candidate.summary}
+                </p>
               </div>
 
               <div className="grid gap-3 sm:grid-cols-3">
@@ -134,7 +182,9 @@ export function CandidateLanding() {
                 <div className="poster-main">
                   <div className="candidate-image-slot">
                     <div className="candidate-image-overlay">
-                      <p className="text-[11px] font-semibold tracking-[0.16em] text-white/72">후보 이미지 영역</p>
+                      <p className="text-[11px] font-semibold tracking-[0.16em] text-white/72">
+                        후보 이미지 영역
+                      </p>
                       <p className="mt-3 text-base font-semibold text-white">공식 후보 사진 교체</p>
                     </div>
                   </div>
@@ -148,8 +198,12 @@ export function CandidateLanding() {
               <div className="grid gap-3 md:grid-cols-3">
                 {candidate.quickStats.map((stat, index) => (
                   <div key={stat.label} className="border-2 border-ink bg-white px-5 py-5">
-                    <div className={`mb-4 h-1.5 w-14 ${index % 2 === 0 ? "bg-civic-blue" : "bg-civic-red"}`} />
-                    <p className={`mb-2 text-[11px] font-semibold tracking-[0.16em] ${index % 2 === 0 ? "text-civic-blue" : "text-civic-red"}`}>
+                    <div
+                      className={`mb-4 h-1.5 w-14 ${index % 2 === 0 ? "bg-civic-blue" : "bg-civic-red"}`}
+                    />
+                    <p
+                      className={`mb-2 text-[11px] font-semibold tracking-[0.16em] ${index % 2 === 0 ? "text-civic-blue" : "text-civic-red"}`}
+                    >
                       {stat.label}
                     </p>
                     <p className="text-sm font-semibold leading-6 text-ink">{stat.value}</p>
@@ -163,7 +217,9 @@ export function CandidateLanding() {
         <section id="promises" className="border-b-2 border-ink">
           <div className="mx-auto max-w-[1320px] px-5 py-16 md:px-7 lg:px-10 lg:py-20">
             <div className="space-y-4">
-              <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-blue">핵심 공약</p>
+              <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-blue">
+                핵심 공약
+              </p>
               <h2 className="max-w-[10ch] text-4xl font-black leading-tight tracking-[-0.05em] text-ink md:text-5xl">
                 서산의 현안을
                 <br />
@@ -187,7 +243,10 @@ export function CandidateLanding() {
                     <p className="mt-4 text-sm leading-7 text-white/86">{promise.summary}</p>
                     <ul className="mt-6 space-y-3">
                       {promise.details.map((detail, detailIndex) => (
-                        <li key={detail} className="flex items-start gap-3 border-t border-white/20 pt-3 text-sm leading-6 text-white">
+                        <li
+                          key={detail}
+                          className="flex items-start gap-3 border-t border-white/20 pt-3 text-sm leading-6 text-white"
+                        >
                           <span className="mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center border border-white/50 text-[10px] font-semibold">
                             {String(detailIndex + 1).padStart(2, "0")}
                           </span>
@@ -205,7 +264,9 @@ export function CandidateLanding() {
         <section id="profile" className="border-b-2 border-ink">
           <div className="mx-auto grid max-w-[1320px] gap-5 px-5 py-16 md:px-7 lg:grid-cols-[0.95fr_1.05fr] lg:px-10 lg:py-20">
             <div className="border-2 border-civic-navy bg-civic-navy px-6 py-6 text-white">
-              <p className="text-[11px] font-semibold tracking-[0.16em] text-white/72">후보자 소개</p>
+              <p className="text-[11px] font-semibold tracking-[0.16em] text-white/72">
+                후보자 소개
+              </p>
               <h2 className="mt-4 text-[2.35rem] font-black leading-tight tracking-[-0.05em]">
                 서산의 산업축과
                 <br />
@@ -221,10 +282,15 @@ export function CandidateLanding() {
             </div>
 
             <div id="record" className="border-2 border-ink bg-white px-6 py-6">
-              <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-red">주요 이력</p>
+              <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-red">
+                주요 이력
+              </p>
               <div className="mt-6 space-y-4">
                 {profile.timeline.map((item, index) => (
-                  <div key={item.title} className="grid gap-0 border border-line md:grid-cols-[108px_minmax(0,1fr)]">
+                  <div
+                    key={item.title}
+                    className="grid gap-0 border border-line md:grid-cols-[108px_minmax(0,1fr)]"
+                  >
                     <div
                       className={`flex min-h-[84px] items-center justify-center px-4 py-4 text-center text-lg font-black text-white ${
                         index % 2 === 0 ? "bg-civic-blue" : "bg-civic-red"
@@ -233,7 +299,9 @@ export function CandidateLanding() {
                       {item.year}
                     </div>
                     <div className="p-4">
-                      <h3 className="text-lg font-bold tracking-[-0.03em] text-ink">{item.title}</h3>
+                      <h3 className="text-lg font-bold tracking-[-0.03em] text-ink">
+                        {item.title}
+                      </h3>
                       <p className="mt-1 text-sm leading-6 text-muted">{item.description}</p>
                     </div>
                   </div>
@@ -248,9 +316,11 @@ export function CandidateLanding() {
           <div className="mx-auto max-w-[1320px] px-5 py-16 md:px-7 lg:px-10 lg:py-20">
             <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
               <div className="border-2 border-ink bg-white px-6 py-6">
-                <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-red">공식 채널</p>
+                <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-red">
+                  공식 채널
+                </p>
                 <h2 className="mt-4 text-[2.4rem] font-black leading-tight tracking-[-0.05em] text-ink">
-                  박준호 후보와
+                  홍길동 후보와
                   <br />
                   바로 연결됩니다
                 </h2>
@@ -270,13 +340,25 @@ export function CandidateLanding() {
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className={`inline-flex h-10 w-10 items-center justify-center ${index === 2 ? toneClassNames.red.icon : toneClassNames.blue.icon}`}>
-                        {index === 0 ? <Phone className="h-4 w-4" /> : index === 1 ? <Megaphone className="h-4 w-4" /> : <MapPinned className="h-4 w-4" />}
+                      <span
+                        className={`inline-flex h-10 w-10 items-center justify-center ${index === 2 ? toneClassNames.red.icon : toneClassNames.blue.icon}`}
+                      >
+                        {index === 0 ? (
+                          <Phone className="h-4 w-4" />
+                        ) : index === 1 ? (
+                          <Megaphone className="h-4 w-4" />
+                        ) : (
+                          <MapPinned className="h-4 w-4" />
+                        )}
                       </span>
                       <ArrowRight className="h-4 w-4 text-white/72" />
                     </div>
-                    <p className="mt-5 text-xs font-semibold tracking-[0.16em] text-white/72">{channel.label}</p>
-                    <p className="mt-2 text-base font-semibold leading-6 text-white">{channel.value}</p>
+                    <p className="mt-5 text-xs font-semibold tracking-[0.16em] text-white/72">
+                      {channel.label}
+                    </p>
+                    <p className="mt-2 text-base font-semibold leading-6 text-white">
+                      {channel.value}
+                    </p>
                   </Link>
                 ))}
               </div>
@@ -311,6 +393,50 @@ export function CandidateLanding() {
           </Link>
         </div>
       </div>
+
+      {isOnboardingOpen ? (
+        <dialog
+          open
+          className="fixed inset-0 z-50 m-0 h-full w-full max-h-none max-w-none border-0 bg-black/70 p-0"
+          aria-label="페이지 안내"
+        >
+          <div className="flex h-full w-full items-center justify-center p-3 md:p-8">
+            <div className="w-full max-w-[680px] border-2 border-ink bg-white px-5 py-7 shadow-[0_24px_80px_rgba(0,0,0,0.35)] md:px-10 md:py-10">
+              <div className="w-full text-center">
+                <p className="text-[11px] font-semibold tracking-[0.16em] text-civic-blue">
+                  첫 방문 안내
+                </p>
+                <h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.04em] text-ink md:text-[2.7rem]">
+                  현재 페이지는 후보자 프로필과 공약을
+                  <br />
+                  빠르게 이해하도록 만든 홍보용 데모입니다
+                </h2>
+
+                <div className="mt-7 space-y-4 border-l-4 border-civic-red pl-4 text-left">
+                  <p className="text-base leading-8 text-muted">
+                    정당이 아직 명확히 확정되지 않은 상황을 전제로 제작하여, 특정 진영으로 보이지
+                    않도록 중도적인 색 균형으로 구성했습니다.
+                  </p>
+                  <p className="text-base leading-8 text-muted">
+                    전달 목적에 맞춰 중립 톤을 적용한 점 양해 부탁드리며, 정당 확정 후에는 톤을 즉시
+                    맞춰 조정할 수 있습니다.
+                  </p>
+                </div>
+
+                <div className="mt-8 flex justify-center">
+                  <button
+                    type="button"
+                    onClick={closeOnboarding}
+                    className="inline-flex items-center justify-center border-2 border-civic-navy bg-civic-navy px-7 py-3 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+                  >
+                    확인하고 시작하기
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </dialog>
+      ) : null}
     </div>
   );
 }
