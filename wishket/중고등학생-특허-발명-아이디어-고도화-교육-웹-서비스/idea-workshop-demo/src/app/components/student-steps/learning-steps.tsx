@@ -311,7 +311,9 @@ export function Step3({
 
         <div className="flex flex-col gap-4">
           <div className="sheet-panel border-none bg-indigo-50/50 p-6">
-            <h4 className="flex items-center gap-2 text-sm font-bold text-indigo-900">핵심 가이드</h4>
+            <h4 className="flex items-center gap-2 text-sm font-bold text-indigo-900">
+              핵심 가이드
+            </h4>
             <div className="mt-5 space-y-5">
               {[
                 {
@@ -362,6 +364,23 @@ export function Step3({
 }
 
 export function Step4({ ctx, state }: StudentStepProps) {
+  const hasIdeaOptions = [
+    {
+      key: "yes" as const,
+      title: "이미 아이디어가 있어요",
+      desc: "구상해둔 아이디어를 더 구체화하고 전문가의 피드백을 통해 고도화하고 싶습니다.",
+      icon: Lightbulb,
+      color: "border-primary bg-blue-50/50",
+    },
+    {
+      key: "no" as const,
+      title: "아직 아이디어가 없어요",
+      desc: "주제와 상황을 바탕으로 추천 초안을 생성해 새로운 발명 아이디어를 찾아보겠습니다.",
+      icon: Search,
+      color: "border-amber-200 bg-amber-50/30",
+    },
+  ];
+
   return (
     <Panel
       eyebrow="4단계: 진입 경로 선택"
@@ -370,22 +389,7 @@ export function Step4({ ctx, state }: StudentStepProps) {
     >
       <div className="space-y-10">
         <div className="grid gap-6 md:grid-cols-2">
-          {[
-            {
-              key: "yes",
-              title: "이미 아이디어가 있어요",
-              desc: "구상해둔 아이디어를 더 구체화하고 전문가의 피드백을 통해 고도화하고 싶습니다.",
-              icon: Lightbulb,
-              color: "border-primary bg-blue-50/50",
-            },
-            {
-              key: "no",
-              title: "아직 아이디어가 없어요",
-              desc: "주제와 상황을 바탕으로 추천 초안을 생성해 새로운 발명 아이디어를 찾아보겠습니다.",
-              icon: Search,
-              color: "border-amber-200 bg-amber-50/30",
-            },
-          ].map((opt) => {
+          {hasIdeaOptions.map((opt) => {
             const isSelected = state.diagnosis.hasIdea === opt.key;
             return (
               <button

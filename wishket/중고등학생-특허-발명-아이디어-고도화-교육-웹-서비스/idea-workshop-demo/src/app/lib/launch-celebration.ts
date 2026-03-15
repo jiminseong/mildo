@@ -1,20 +1,10 @@
 "use client";
 
-import type { Options } from "canvas-confetti";
-
-let confettiLoader: Promise<typeof import("canvas-confetti")["default"]> | null = null;
-
-function loadConfetti() {
-  if (!confettiLoader) {
-    confettiLoader = import("canvas-confetti").then((module) => module.default);
-  }
-  return confettiLoader;
-}
+import confetti, { type Options } from "canvas-confetti";
 
 export async function launchCompletionCelebration() {
   if (typeof window === "undefined") return;
 
-  const confetti = await loadConfetti();
   const defaults: Options = {
     ticks: 240,
     gravity: 0.92,
