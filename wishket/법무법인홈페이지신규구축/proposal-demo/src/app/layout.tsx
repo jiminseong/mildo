@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   title: "법무법인 한결 | 형사 특화 법률서비스",
   description: "성범죄·마약 사건 대응 전문 법무법인 제안용 데모",
   icons: {
-    icon: "/icon",
-    shortcut: "/icon",
-    apple: "/icon",
+    icon: "/favicon.svg?v=1",
+    shortcut: "/favicon.svg?v=1",
+    apple: "/favicon.svg?v=1",
   },
 };
 

@@ -1,23 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "hankyul-home-intro-modal-seen";
 
 export default function HomeIntroModal() {
-  const [open, setOpen] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
+  const [open, setOpen] = useState(false);
 
+  useEffect(() => {
     const seen = window.sessionStorage.getItem(STORAGE_KEY);
     if (seen) {
-      return false;
+      return;
     }
 
     window.sessionStorage.setItem(STORAGE_KEY, "1");
-    return true;
-  });
+
+    const id = window.requestAnimationFrame(() => {
+      setOpen(true);
+    });
+
+    return () => window.cancelAnimationFrame(id);
+  }, []);
 
   if (!open) {
     return null;
