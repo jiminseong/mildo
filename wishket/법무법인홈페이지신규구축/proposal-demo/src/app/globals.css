@@ -1,0 +1,119 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import "tailwindcss";
+
+:root {
+  --law-navy-900: #101a2b;
+  --law-navy-800: #17263f;
+  --law-navy-700: #223558;
+  --law-gold-500: #b08a4b;
+  --law-gold-400: #c8a56a;
+  --law-bg: #f4efe6;
+  --law-surface: #fffdf8;
+  --law-ink: #1f2430;
+  --law-line: #d7cfc2;
+
+  --background: var(--law-bg);
+  --foreground: var(--law-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Pretendard";
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family:
+    "Pretendard",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  letter-spacing: -0.015em;
+}
+
+.law-container {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.law-topbar {
+  background: var(--law-navy-900);
+  color: #f8f3e8;
+}
+
+.law-hero {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(200, 165, 106, 0.18), transparent 40%),
+    linear-gradient(145deg, var(--law-navy-900), var(--law-navy-700));
+  color: #f8f3e8;
+}
+
+.law-card {
+  background: var(--law-surface);
+  border: 1px solid var(--law-line);
+  border-radius: 0;
+}
+
+.law-btn-primary {
+  background: var(--law-navy-900);
+  color: #f3e4c6;
+  border: 1px solid var(--law-gold-500);
+  border-radius: 0;
+}
+
+.law-btn-primary:hover {
+  background: #0c1422;
+}
+
+.law-btn-secondary {
+  background: #fff8e8;
+  color: var(--law-navy-900);
+  border: 1px solid var(--law-gold-500);
+  border-radius: 0;
+}
+
+.law-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0;
+  border: 1px solid #b89e73;
+  background: #fbf2df;
+  color: #5e461b;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.floating-hero-avatar {
+  will-change: transform;
+}
+
+/* Force a sharp visual language across the whole demo. */
+:where(
+  .rounded-sm,
+  .rounded,
+  .rounded-md,
+  .rounded-lg,
+  .rounded-xl,
+  .rounded-2xl,
+  .rounded-3xl,
+  .rounded-full
+) {
+  border-radius: 0 !important;
+}
