@@ -9,12 +9,12 @@
 - `mildo` 메인 앱과 분리된 독립 Next.js 앱으로 관리해 제안용 배포와 보관을 쉽게 만든다.
 
 구현 위치:
-- 앱 루트: `wishket/법무법인홈페이지신규구축/proposal-demo`
-- 화면 코드: `proposal-demo/src/app/*`
+- 앱 루트: `wishket/법무법인홈페이지신규구축/hankyul-law-demo`
+- 화면 코드: `hankyul-law-demo/src/app/*`
 - 제안 문서: `APPLICATION.md`, `TASK.md`
 
 생성 기준:
-- `npx create-next-app@latest proposal-demo --ts --eslint --tailwind --app --src-dir --import-alias "@/*" --use-npm --yes`
+- `npx create-next-app@latest hankyul-law-demo --ts --eslint --tailwind --app --src-dir --import-alias "@/*" --use-npm --yes`
 - 배포 대상은 별도 Vercel 프로젝트로 관리한다.
 - 메인 서비스 앱 라우트와 연결하지 않고, mock 데이터 중심의 제안용 데모로 유지한다.
 
@@ -50,7 +50,7 @@
 배포 메모:
 - 로컬 실행: `npm run dev`
 - 사전 검증: `npm run lint`, `npm run build`
-- Vercel에서는 `wishket/법무법인홈페이지신규구축/proposal-demo`를 루트 디렉토리로 연결한다.
+- Vercel에서는 `wishket/법무법인홈페이지신규구축/hankyul-law-demo`를 루트 디렉토리로 연결한다.
 - 외부 공유 시에는 완성 서비스가 아니라 `제안용 예시 데모`라는 점을 명확히 표기한다.
 - 참고: Next.js 16 Turbopack이 한글 경로에서 빌드 에러를 낼 수 있어, 스크립트는 `--webpack` 옵션으로 고정했다.
 
