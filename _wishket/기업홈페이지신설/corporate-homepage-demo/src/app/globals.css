@@ -1,0 +1,90 @@
+@import "tailwindcss";
+@import "pretendard/dist/web/static/pretendard.css";
+
+:root {
+  --corp-primary-900: #0a2e25;
+  --corp-primary-700: #104d3d;
+  --corp-primary-500: #217d65;
+  --corp-accent-500: #059669;
+  --corp-accent-300: #34d399;
+  --corp-bg: #f9fdfb;
+  --corp-surface: #ffffff;
+  --corp-text: #1e2925;
+  --corp-muted: #64746d;
+  --corp-line: #e2e8e5;
+}
+
+@theme inline {
+  --color-background: var(--corp-bg);
+  --color-foreground: var(--corp-text);
+  --font-sans: "Pretendard";
+  --font-heading: "Pretendard";
+  --animate-scrolldown: scrolldown 1.5s ease-in-out infinite;
+}
+
+@keyframes scrolldown {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+  100% { transform: translateY(200%); }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--corp-bg);
+  color: var(--corp-text);
+  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+}
+
+.font-heading {
+  font-family: "Pretendard", "Apple SD Gothic Neo", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.panel {
+  border: 1px solid var(--corp-line);
+  background: var(--corp-surface);
+  border-radius: 6px;
+}
+
+.btn-primary {
+  background: linear-gradient(140deg, var(--corp-primary-900), var(--corp-primary-700));
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.72rem 1.2rem;
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 14px 30px rgba(15, 39, 66, 0.3);
+}
+
+.btn-ghost {
+  border: 1px solid var(--corp-primary-900);
+  color: var(--corp-primary-900);
+  border-radius: 4px;
+  padding: 0.7rem 1.2rem;
+  transition: all 280ms ease;
+}
+
+.btn-ghost:hover {
+  background: var(--corp-primary-900);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
